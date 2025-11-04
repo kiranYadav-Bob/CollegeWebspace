@@ -63,11 +63,11 @@ export default function Navigation() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link href="/about">
-                    <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-about">
+                  <NavigationMenuLink asChild>
+                    <Link href="/about" className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-about">
                       About Us
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
@@ -76,11 +76,11 @@ export default function Navigation() {
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                       {academicsLinks.map((link) => (
                         <li key={link.href}>
-                          <Link href={link.href}>
-                            <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none hover-elevate active-elevate-2" data-testid={`link-${link.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                          <NavigationMenuLink asChild>
+                            <Link href={link.href} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none hover-elevate active-elevate-2" data-testid={`link-${link.title.toLowerCase().replace(/\s+/g, '-')}`}>
                               <div className="text-sm font-medium leading-none">{link.title}</div>
-                            </NavigationMenuLink>
-                          </Link>
+                            </Link>
+                          </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
@@ -93,11 +93,11 @@ export default function Navigation() {
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                       {admissionsLinks.map((link) => (
                         <li key={link.href}>
-                          <Link href={link.href}>
-                            <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none hover-elevate active-elevate-2" data-testid={`link-${link.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                          <NavigationMenuLink asChild>
+                            <Link href={link.href} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none hover-elevate active-elevate-2" data-testid={`link-${link.title.toLowerCase().replace(/\s+/g, '-')}`}>
                               <div className="text-sm font-medium leading-none">{link.title}</div>
-                            </NavigationMenuLink>
-                          </Link>
+                            </Link>
+                          </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
@@ -105,11 +105,11 @@ export default function Navigation() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link href="/research">
-                    <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-research">
+                  <NavigationMenuLink asChild>
+                    <Link href="/research" className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-research">
                       Research
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
@@ -118,11 +118,11 @@ export default function Navigation() {
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                       {studentLifeLinks.map((link) => (
                         <li key={link.href}>
-                          <Link href={link.href}>
-                            <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none hover-elevate active-elevate-2" data-testid={`link-${link.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                          <NavigationMenuLink asChild>
+                            <Link href={link.href} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none hover-elevate active-elevate-2" data-testid={`link-${link.title.toLowerCase().replace(/\s+/g, '-')}`}>
                               <div className="text-sm font-medium leading-none">{link.title}</div>
-                            </NavigationMenuLink>
-                          </Link>
+                            </Link>
+                          </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
@@ -130,35 +130,35 @@ export default function Navigation() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link href="/gallery">
-                    <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-gallery">
+                  <NavigationMenuLink asChild>
+                    <Link href="/gallery" className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-gallery">
                       Gallery
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link href="/news">
-                    <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-news">
+                  <NavigationMenuLink asChild>
+                    <Link href="/news" className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-news">
                       News & Events
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link href="/placements">
-                    <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-placements">
+                  <NavigationMenuLink asChild>
+                    <Link href="/placements" className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-placements">
                       Placements
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link href="/contact">
-                    <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-contact">
+                  <NavigationMenuLink asChild>
+                    <Link href="/contact" className="px-3 py-2 text-sm font-medium hover-elevate active-elevate-2 rounded-md" data-testid="link-contact">
                       Contact
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
