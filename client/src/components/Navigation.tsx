@@ -23,7 +23,7 @@ export default function Navigation() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []); // Added dependency array to useEffect
+  }, []);
 
   const aboutLinks = [
     { title: "History", href: "/about/history" },
