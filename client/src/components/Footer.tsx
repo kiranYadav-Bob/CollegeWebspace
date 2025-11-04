@@ -24,6 +24,17 @@ export default function Footer() {
     { title: "Clubs", href: "/student-life/clubs" },
   ];
 
+  // Added academicsLinks based on the changes provided, assuming it was intended to be included.
+  const academicsLinks = [
+    { title: "Departments", href: "/academics/departments" },
+    { title: "Programs", href: "/academics/programs" },
+    { title: "Faculty", href: "/academics/faculty" },
+  ];
+
+  // Renamed studentLinks to studentServices for consistency with the changes provided.
+  const studentServices = studentLinks;
+
+
   return (
     <footer className="border-t bg-muted/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -57,7 +68,7 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Student Services</h3>
             <ul className="space-y-2">
-              {studentLinks.map((link) => (
+              {studentServices.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.title}

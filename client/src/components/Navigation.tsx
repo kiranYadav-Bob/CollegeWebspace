@@ -15,6 +15,15 @@ import { ThemeToggle } from "./ThemeToggle";
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useState(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
 
   const aboutLinks = [
     { title: "History", href: "/about/history" },
@@ -46,7 +55,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className={`sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-shadow duration-300 ${scrolled ? 'shadow-md' : ''}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-md px-3 py-2">
@@ -187,7 +196,7 @@ export default function Navigation() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden pb-4" data-testid="mobile-menu">
+          <div className="lg:hidden pb-4 animate-in slide-in-from-top-2 duration-300" data-testid="mobile-menu">
             <div className="flex flex-col gap-2">
               <Link href="/about">
                 <Button variant="ghost" className="w-full justify-start" data-testid="link-mobile-about">
