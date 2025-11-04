@@ -9,11 +9,21 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { Menu, X, GraduationCap, Search } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
@@ -174,9 +184,35 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button size="icon" variant="ghost" data-testid="button-search">
-              <Search className="h-5 w-5" />
-            </Button>
+            <Dialog open={searchOpen} onOpenChange={setSearchOpen}>
+              <DialogTrigger asChild>
+                <Button size="icon" variant="ghost" data-testid="button-search">
+                  <Search className="h-5 w-5" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[600px]">
+                <DialogHeader>
+                  <DialogTitle>Search Website</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4 py-4">
+                  <Input
+                    placeholder="Search courses, departments, faculty, events..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full"
+                    autoFocus
+                  />
+                  {searchQuery && (
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">Search results for "{searchQuery}"</p>
+                      <div className="rounded-md border p-4">
+                        <p className="text-sm text-muted-foreground">No results found. Try different keywords.</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </DialogContent>
+            </Dialog>
             <ThemeToggle />
             <Link href="/admissions/apply">
               <Button variant="default" className="hidden sm:inline-flex" data-testid="button-apply-now">
