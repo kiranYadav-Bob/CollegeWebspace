@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,13 +17,13 @@ export default function Navigation() {
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
-  useState(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  });
+  }, []); // Added dependency array to useEffect
 
   const aboutLinks = [
     { title: "History", href: "/about/history" },
