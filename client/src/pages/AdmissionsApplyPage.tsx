@@ -129,13 +129,84 @@ export default function AdmissionsApplyPage() {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (validateStep(currentStep)) {
-      toast({
-        title: "Application Submitted!",
-        description: "We've received your application. You'll hear from us soon.",
-      });
-      // Reset form or redirect
+      try {
+        const response = await fetch('/api/applications', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phone: formData.phone,
+            dateOfBirth: formData.dateOfBirth,
+            gender: formData.gender,
+            nationality: formData.nationality,
+            programType: formData.programType,
+            programName: formData.programName,
+            startTerm: formData.startTerm,
+            highSchool: formData.highSchool,
+            graduationYear: formData.graduationYear,
+            gpa: formData.gpa,
+            hasUndergrad: formData.hasUndergrad ? "yes" : "no",
+            undergradInstitution: formData.undergradInstitution || null,
+            undergradDegree: formData.undergradDegree || null,
+            undergradGPA: formData.undergradGPA || null,
+            statementOfPurpose: formData.statementOfPurpose,
+            achievements: formData.achievements || null,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          toast({
+            title: "Application Submitted!",
+            description: "We've received your application. You'll hear from us soon.",
+          });
+          // Reset form
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            dateOfBirth: "",
+            gender: "",
+            nationality: "",
+            programType: "",
+            programName: "",
+            startTerm: "",
+            highSchool: "",
+            graduationYear: "",
+            gpa: "",
+            hasUndergrad: false,
+            undergradInstitution: "",
+            undergradDegree: "",
+            undergradGPA: "",
+            statementOfPurpose: "",
+            achievements: "",
+            transcript: null,
+            recommendationLetter: null,
+            agreeToTerms: false,
+          });
+          setCurrentStep(1);
+        } else {
+          toast({
+            title: "Submission Failed",
+            description: result.error || "Please try again later.",
+            variant: "destructive",
+          });
+        }
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Failed to submit application. Please try again.",
+          variant: "destructive",
+        });
+      }
     }
   };
 

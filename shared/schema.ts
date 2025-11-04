@@ -103,3 +103,47 @@ export const insertEventSchema = createInsertSchema(events).omit({
 
 export type InsertEvent = z.infer<typeof insertEventSchema>;
 export type Event = typeof events.$inferSelect;
+
+export const applicationSubmissions = pgTable("application_submissions", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  // Personal Information
+  firstName: text("first_name").notNull(),
+  lastName: text("last_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  dateOfBirth: text("date_of_birth").notNull(),
+  gender: text("gender").notNull(),
+  nationality: text("nationality").notNull(),
+  
+  // Program Information
+  programType: text("program_type").notNull(),
+  programName: text("program_name").notNull(),
+  startTerm: text("start_term").notNull(),
+  
+  // Educational Background
+  highSchool: text("high_school").notNull(),
+  graduationYear: text("graduation_year").notNull(),
+  gpa: text("gpa").notNull(),
+  hasUndergrad: text("has_undergrad").notNull(),
+  undergradInstitution: text("undergrad_institution"),
+  undergradDegree: text("undergrad_degree"),
+  undergradGPA: text("undergrad_gpa"),
+  
+  // Additional Information
+  statementOfPurpose: text("statement_of_purpose").notNull(),
+  achievements: text("achievements"),
+  
+  // Status
+  status: text("status").notNull().default("pending"),
+  
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertApplicationSchema = createInsertSchema(applicationSubmissions).omit({
+  id: true,
+  createdAt: true,
+  status: true,
+});
+
+export type InsertApplication = z.infer<typeof insertApplicationSchema>;
+export type ApplicationSubmission = typeof applicationSubmissions.$inferSelect;

@@ -19,6 +19,7 @@ import AdmissionsFeesPage from "@/pages/AdmissionsFeesPage";
 import AdmissionsApplyPage from "@/pages/AdmissionsApplyPage";
 import AcademicsCoursesPage from "@/pages/AcademicsCoursesPage";
 import ResearchPage from "@/pages/ResearchPage";
+import AdminPage from "@/pages/AdminPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -35,11 +36,7 @@ function Router() {
       <Route path="/admissions/postgraduate" component={AdmissionsPage} />
       <Route path="/admissions/fees" component={AdmissionsFeesPage} />
       <Route path="/admissions/apply" component={AdmissionsApplyPage} />
-      <Route path="/research" component={ResearchPage} />
-      <Route path="/gallery" component={GalleryPage} />
-      <Route path="/news" component={NewsPage} />
-      <Route path="/placements" component={PlacementsPage} />
-      <Route path="/contact" component={ContactPage} />
+      <Route path="/admin" component={AdminPage} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactSchema, insertDepartmentSchema, insertFacultySchema, insertNewsSchema, insertEventSchema } from "@shared/schema";
+import { insertContactSchema, insertDepartmentSchema, insertFacultySchema, insertNewsSchema, insertEventSchema, insertApplicationSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -150,6 +150,51 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(event);
     } catch (error: any) {
       res.status(400).json({ error: error.message });
+    }
+  });
+
+  // Applications
+  app.get("/api/applications", async (req, res) => {
+    try {
+      const applications = await storage.getApplications();
+      res.json(applications);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/applications/:id", async (req, res) => {
+    try {
+      const application = await storage.getApplication(req.params.id);
+      if (!application) {
+        return res.status(404).json({ error: "Application not found" });
+      }
+      res.json(application);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/applications", async (req, res) => {
+    try {
+      const data = insertApplicationSchema.parse(req.body);
+      const application = await storage.createApplication(data);
+      res.json({ success: true, application });
+    } catch (error: any) {
+      res.status(400).json({ success: false, error: error.message });
+    }
+  });
+
+  app.patch("/api/applications/:id/status", async (req, res) => {
+    try {
+      const { status } = req.body;
+      const application = await storage.updateApplicationStatus(req.params.id, status);
+      if (!application) {
+        return res.status(404).json({ error: "Application not found" });
+      }
+      res.json(application);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
     }
   });
 

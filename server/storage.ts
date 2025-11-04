@@ -12,6 +12,8 @@ import type {
   InsertNews,
   Event,
   InsertEvent,
+  ApplicationSubmission,
+  InsertApplication,
 } from "@shared/schema";
 
 export interface IStorage {
@@ -37,6 +39,11 @@ export interface IStorage {
   getEvents(): Promise<Event[]>;
   getEvent(id: string): Promise<Event | undefined>;
   createEvent(event: InsertEvent): Promise<Event>;
+  
+  getApplications(): Promise<ApplicationSubmission[]>;
+  getApplication(id: string): Promise<ApplicationSubmission | undefined>;
+  createApplication(application: InsertApplication): Promise<ApplicationSubmission>;
+  updateApplicationStatus(id: string, status: string): Promise<ApplicationSubmission | undefined>;
 }
 
 export class MemStorage implements IStorage {
@@ -46,6 +53,7 @@ export class MemStorage implements IStorage {
   private facultyMembers: Map<string, Faculty>;
   private newsItems: Map<string, News>;
   private events: Map<string, Event>;
+  private applications: Map<string, ApplicationSubmission>;
 
   constructor() {
     this.users = new Map();
@@ -54,6 +62,7 @@ export class MemStorage implements IStorage {
     this.facultyMembers = new Map();
     this.newsItems = new Map();
     this.events = new Map();
+    this.applications = new Map();
     
     this.seedInitialData();
   }
@@ -238,6 +247,37 @@ export class MemStorage implements IStorage {
     };
     this.events.set(id, evt);
     return evt;
+  }
+
+  async getApplications(): Promise<ApplicationSubmission[]> {
+    return Array.from(this.applications.values()).sort(
+      (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+    );
+  }
+
+  async getApplication(id: string): Promise<ApplicationSubmission | undefined> {
+    return this.applications.get(id);
+  }
+
+  async createApplication(application: InsertApplication): Promise<ApplicationSubmission> {
+    const id = randomUUID();
+    const submission: ApplicationSubmission = {
+      ...application,
+      id,
+      status: "pending",
+      createdAt: new Date(),
+    };
+    this.applications.set(id, submission);
+    return submission;
+  }
+
+  async updateApplicationStatus(id: string, status: string): Promise<ApplicationSubmission | undefined> {
+    const application = this.applications.get(id);
+    if (!application) return undefined;
+    
+    const updated = { ...application, status };
+    this.applications.set(id, updated);
+    return updated;
   }
 }
 
