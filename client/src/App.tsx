@@ -16,6 +16,7 @@ import StudentLifeEventsPage from "@/pages/StudentLifeEventsPage";
 import StudentLifeHostelPage from "@/pages/StudentLifeHostelPage";
 import StudentLifeSportsPage from "@/pages/StudentLifeSportsPage";
 import AdmissionsFeesPage from "@/pages/AdmissionsFeesPage";
+import AdmissionsApplyPage from "@/pages/AdmissionsApplyPage";
 import AcademicsCoursesPage from "@/pages/AcademicsCoursesPage";
 import ResearchPage from "@/pages/ResearchPage";
 import NotFound from "@/pages/not-found";
@@ -33,10 +34,7 @@ function Router() {
       <Route path="/admissions/undergraduate" component={AdmissionsPage} />
       <Route path="/admissions/postgraduate" component={AdmissionsPage} />
       <Route path="/admissions/fees" component={AdmissionsFeesPage} />
-      <Route path="/student-life/clubs" component={StudentLifeClubsPage} />
-      <Route path="/student-life/events" component={StudentLifeEventsPage} />
-      <Route path="/student-life/hostel" component={StudentLifeHostelPage} />
-      <Route path="/student-life/sports" component={StudentLifeSportsPage} />
+      <Route path="/admissions/apply" component={AdmissionsApplyPage} />
       <Route path="/research" component={ResearchPage} />
       <Route path="/gallery" component={GalleryPage} />
       <Route path="/news" component={NewsPage} />
