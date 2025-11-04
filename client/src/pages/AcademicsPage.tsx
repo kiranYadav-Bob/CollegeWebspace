@@ -1,21 +1,26 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import DepartmentCard from "@/components/DepartmentCard";
-import { Computer, FlaskConical, Building2, Briefcase, Heart, Calculator, Palette, Globe, BookOpen, Music } from "lucide-react";
+import { Computer, FlaskConical, Building2, Briefcase, Heart, Calculator, Palette, Globe, BookOpen, Music, Beaker, Scale, Newspaper } from "lucide-react";
 
 export default function AcademicsPage() {
   //todo: remove mock functionality
   const departments = [
-    { icon: Computer, title: "Computer Science", description: "Cutting-edge technology and software development", coursesCount: 25, href: "/academics/departments/cs" },
-    { icon: FlaskConical, title: "Engineering", description: "Mechanical, Civil, and Electrical engineering", coursesCount: 30, href: "/academics/departments/engineering" },
-    { icon: Calculator, title: "Mathematics", description: "Pure and applied mathematics", coursesCount: 15, href: "/academics/departments/math" },
-    { icon: Briefcase, title: "Business Administration", description: "MBA and business programs", coursesCount: 20, href: "/academics/departments/business" },
-    { icon: Heart, title: "Medical Sciences", description: "Healthcare and medical research", coursesCount: 18, href: "/academics/departments/medical" },
-    { icon: Building2, title: "Architecture", description: "Design and urban planning", coursesCount: 12, href: "/academics/departments/architecture" },
-    { icon: Palette, title: "Fine Arts", description: "Visual arts and design programs", coursesCount: 10, href: "/academics/departments/arts" },
-    { icon: Globe, title: "Social Sciences", description: "Sociology, Psychology, and Economics", coursesCount: 22, href: "/academics/departments/social" },
-    { icon: BookOpen, title: "Literature", description: "English and Comparative Literature", coursesCount: 14, href: "/academics/departments/literature" },
-    { icon: Music, title: "Performing Arts", description: "Music, Theatre, and Dance", coursesCount: 8, href: "/academics/departments/performing" },
+    { icon: Computer, title: "Computer Science", description: "AI, Machine Learning, and Software Development", coursesCount: 28, href: "/academics/departments/cs" },
+    { icon: FlaskConical, title: "Engineering", description: "Mechanical, Civil, Electrical, and Electronics", coursesCount: 35, href: "/academics/departments/engineering" },
+    { icon: Calculator, title: "Mathematics", description: "Pure and Applied Mathematics & Statistics", coursesCount: 18, href: "/academics/departments/math" },
+    { icon: Briefcase, title: "Business Administration", description: "MBA, Finance, Marketing & Entrepreneurship", coursesCount: 24, href: "/academics/departments/business" },
+    { icon: Heart, title: "Medical Sciences", description: "Medicine, Nursing, Pharmacy & Allied Health", coursesCount: 22, href: "/academics/departments/medical" },
+    { icon: Building2, title: "Architecture", description: "Architecture, Interior Design & Urban Planning", coursesCount: 15, href: "/academics/departments/architecture" },
+    { icon: Palette, title: "Fine Arts", description: "Painting, Sculpture, Graphics & Digital Arts", coursesCount: 12, href: "/academics/departments/arts" },
+    { icon: Globe, title: "Social Sciences", description: "Sociology, Psychology, Economics & Political Science", coursesCount: 26, href: "/academics/departments/social" },
+    { icon: BookOpen, title: "Literature", description: "English, Comparative Literature & Linguistics", coursesCount: 16, href: "/academics/departments/literature" },
+    { icon: Music, title: "Performing Arts", description: "Music, Theatre, Dance & Cinematography", coursesCount: 10, href: "/academics/departments/performing" },
+    { icon: Beaker, title: "Natural Sciences", description: "Physics, Chemistry, Biology & Environmental Science", coursesCount: 20, href: "/academics/departments/sciences" },
+    { icon: Computer, title: "Information Technology", description: "Cybersecurity, Cloud Computing & Data Science", coursesCount: 22, href: "/academics/departments/it" },
+    { icon: Scale, title: "Law & Legal Studies", description: "Constitutional Law, Criminal Law & Corporate Law", coursesCount: 19, href: "/academics/departments/law" },
+    { icon: Newspaper, title: "Mass Communication", description: "Journalism, Advertising & Public Relations", coursesCount: 14, href: "/academics/departments/masscomm" },
+    { icon: Beaker, title: "Biotechnology", description: "Genetic Engineering, Bioinformatics & Biotech Research", coursesCount: 17, href: "/academics/departments/biotech" },
   ];
 
   return (

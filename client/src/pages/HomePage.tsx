@@ -6,7 +6,7 @@ import QuickLinks from "@/components/QuickLinks";
 import DepartmentCard from "@/components/DepartmentCard";
 import NewsCard from "@/components/NewsCard";
 import EventCard from "@/components/EventCard";
-import { Computer, FlaskConical, Building2, Briefcase, Heart, Calculator } from "lucide-react";
+import { Computer, FlaskConical, Building2, Briefcase, Heart, Calculator, Globe, BookOpen, Palette, Music } from "lucide-react";
 import libraryImage from "@assets/generated_images/Library_interior_photo_13d10bb1.png";
 import labImage from "@assets/generated_images/Science_lab_facility_a5499f61.png";
 import sportsImage from "@assets/generated_images/Sports_facilities_campus_4c0bc1cc.png";
@@ -17,44 +17,86 @@ export default function HomePage() {
     {
       icon: Computer,
       title: "Computer Science",
-      description: "Cutting-edge technology and software development programs",
-      coursesCount: 25,
+      description: "AI, Machine Learning, and cutting-edge software development",
+      coursesCount: 28,
       href: "/academics/departments/cs"
     },
     {
       icon: FlaskConical,
       title: "Engineering",
-      description: "Mechanical, Civil, and Electrical engineering excellence",
-      coursesCount: 30,
+      description: "Mechanical, Civil, Electrical, and Electronics excellence",
+      coursesCount: 35,
       href: "/academics/departments/engineering"
     },
     {
       icon: Calculator,
       title: "Mathematics",
-      description: "Pure and applied mathematics programs",
-      coursesCount: 15,
+      description: "Pure mathematics, applied statistics, and data analytics",
+      coursesCount: 18,
       href: "/academics/departments/math"
     },
     {
       icon: Briefcase,
       title: "Business Administration",
-      description: "MBA and undergraduate business programs",
-      coursesCount: 20,
+      description: "MBA, Finance, Marketing, and Entrepreneurship programs",
+      coursesCount: 24,
       href: "/academics/departments/business"
     },
     {
       icon: Heart,
       title: "Medical Sciences",
-      description: "Healthcare and medical research programs",
-      coursesCount: 18,
+      description: "Medicine, Nursing, Pharmacy, and allied health sciences",
+      coursesCount: 22,
       href: "/academics/departments/medical"
     },
     {
       icon: Building2,
       title: "Architecture",
-      description: "Design and urban planning programs",
-      coursesCount: 12,
+      description: "Architecture, Interior Design, and urban planning",
+      coursesCount: 15,
       href: "/academics/departments/architecture"
+    },
+    {
+      icon: Computer,
+      title: "Information Technology",
+      description: "Cybersecurity, Cloud Computing, and Data Science",
+      coursesCount: 22,
+      href: "/academics/departments/it"
+    },
+    {
+      icon: Globe,
+      title: "Natural Sciences",
+      description: "Physics, Chemistry, Biology, and Environmental Science",
+      coursesCount: 20,
+      href: "/academics/departments/sciences"
+    },
+    {
+      icon: BookOpen,
+      title: "Law & Legal Studies",
+      description: "Constitutional, Criminal, and Corporate Law programs",
+      coursesCount: 19,
+      href: "/academics/departments/law"
+    },
+    {
+      icon: Palette,
+      title: "Fine Arts",
+      description: "Visual Arts, Painting, Sculpture, and Digital Arts",
+      coursesCount: 12,
+      href: "/academics/departments/arts"
+    },
+    {
+      icon: Music,
+      title: "Performing Arts",
+      description: "Music, Theatre, Dance, and Cinematography",
+      coursesCount: 10,
+      href: "/academics/departments/performing"
+    },
+    {
+      icon: Globe,
+      title: "Social Sciences",
+      description: "Sociology, Psychology, Economics & Political Science",
+      coursesCount: 26,
+      href: "/academics/departments/social"
     },
   ];
 
