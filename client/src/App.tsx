@@ -36,6 +36,15 @@ function Router() {
       <Route path="/admissions/postgraduate" component={AdmissionsPage} />
       <Route path="/admissions/fees" component={AdmissionsFeesPage} />
       <Route path="/admissions/apply" component={AdmissionsApplyPage} />
+      <Route path="/research" component={ResearchPage} />
+      <Route path="/student-life/clubs" component={StudentLifeClubsPage} />
+      <Route path="/student-life/events" component={StudentLifeEventsPage} />
+      <Route path="/student-life/hostel" component={StudentLifeHostelPage} />
+      <Route path="/student-life/sports" component={StudentLifeSportsPage} />
+      <Route path="/gallery" component={GalleryPage} />
+      <Route path="/placements" component={PlacementsPage} />
+      <Route path="/news" component={NewsPage} />
+      <Route path="/contact" component={ContactPage} />
       <Route path="/admin" component={AdminPage} />
       <Route component={NotFound} />
     </Switch>

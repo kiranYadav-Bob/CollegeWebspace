@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React, { useState } from 'react';
 
+// Importing Student Life pages (though not directly used in this Footer component,
+// they are imported as per the user's message, assuming they are for other parts of the application).
+import StudentLifeClubsPage from "@/pages/StudentLifeClubsPage";
+import StudentLifeEventsPage from "@/pages/StudentLifeEventsPage";
+import StudentLifeHostelPage from "@/pages/StudentLifeHostelPage";
+import StudentLifeSportsPage from "@/pages/StudentLifeSportsPage";
+
 export default function Footer() {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -141,16 +148,9 @@ export default function Footer() {
               <ul className="space-y-2">
                 {studentServices.map((link) => (
                   <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.location.href = link.href;
-                      }}
-                    >
+                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       {link.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
